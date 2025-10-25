@@ -1,1 +1,5 @@
-![Demo](./video.gif)
+## 📱 Demo
+
+<div align="center">
+  
+![Demo](video.gif)
