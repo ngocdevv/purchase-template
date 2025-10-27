@@ -62,16 +62,10 @@ export default function SubScreen() {
       <ButtonScale label='Purchase' onPress={handlePresentModalPress} />
       <BottomSheetModal
         backdropComponent={renderBottomSheetBackdrop}
-        handleIndicatorStyle={{
-          backgroundColor: "#D3D3D3",
-          marginTop: 4,
-          width: "12%"
-        }}
-        backgroundStyle={{
-          borderRadius: 42,
-        }}
+        handleIndicatorStyle={styles.handleIndicator}
+        backgroundStyle={styles.bottomSheetBackground}
         ref={bottomSheetModalRef}>
-        <BottomSheetView style={[styles.fill, { paddingBottom: 36 }]}>
+        <BottomSheetView style={[styles.fill, styles.bottomSheetViewPadding]}>
           <Animated.View entering={FadeInDown.springify()
             .damping(10)
             .mass(1)
@@ -88,7 +82,7 @@ export default function SubScreen() {
               height={38}
             />
             <Animated.View style={styles.subscriptionCard} entering={deeperFadeInDown}>
-              <Animated.View entering={deeperZoomInDown} style={[styles.subscriptionCard, { marginHorizontal: 32 }]}>
+              <Animated.View entering={deeperZoomInDown} style={[styles.subscriptionCard, styles.subscriptionCardInner]}>
                 <FlagWave color={selected.color} />
                 <View style={styles.priceInfo}>
                   <PriceAnimation content={selected.price} ref={everybodyStaggeredTextRef} />
@@ -98,9 +92,7 @@ export default function SubScreen() {
             </Animated.View>
           </Animated.View>
           <ListDescription />
-          <Animated.View entering={deeperFadeInDown}>
-            <ButtonScale />
-          </Animated.View>
+          <ButtonScale entering={deeperFadeInDown} />
         </BottomSheetView>
       </BottomSheetModal>
     </View>
@@ -117,9 +109,23 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
+  handleIndicator: {
+    backgroundColor: "#D3D3D3",
+    marginTop: 4,
+    width: "12%"
+  },
+  bottomSheetBackground: {
+    borderRadius: 42
+  },
+  bottomSheetViewPadding: {
+    paddingBottom: 36
+  },
   subscriptionCard: {
     borderRadius: 28,
     overflow: "hidden"
+  },
+  subscriptionCardInner: {
+    marginHorizontal: 32
   },
   priceInfo: {
     position: "absolute",

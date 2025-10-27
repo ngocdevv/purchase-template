@@ -1,13 +1,13 @@
 import React from 'react';
 import {
   Pressable,
-  StyleProp,
   StyleSheet,
   Text,
   View,
-  ViewStyle,
+  ViewStyle
 } from 'react-native';
 import Animated, {
+  AnimatedProps,
   useAnimatedStyle,
   useSharedValue,
   withSpring,
@@ -22,15 +22,15 @@ const SPRING_CONFIG = {
 type ButtonScaleProps = {
   label?: string;
   onPress?: () => void;
+
   disabled?: boolean;
-  style?: StyleProp<ViewStyle>;
-};
+} & AnimatedProps<ViewStyle>;
 
 export const ButtonScale: React.FC<ButtonScaleProps> = ({
   label = 'Start free trial',
   onPress,
   disabled = false,
-  style,
+  ...props
 }) => {
   const scale = useSharedValue(1);
 
@@ -54,7 +54,7 @@ export const ButtonScale: React.FC<ButtonScaleProps> = ({
   };
 
   return (
-    <Animated.View style={[styles.wrapper, style, animatedStyle]}>
+    <Animated.View style={[styles.wrapper, animatedStyle]} {...props}>
       <Pressable
         onPress={onPress}
         disabled={disabled}
