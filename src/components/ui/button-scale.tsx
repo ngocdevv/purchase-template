@@ -115,16 +115,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     opacity: 0.85,
   },
-  lowlight: {
-    position: 'absolute',
-    bottom: 6,
-    left: 18,
-    right: 18,
-    height: 18,
-    borderRadius: 999,
-    backgroundColor: '#D8D8DE',
-    opacity: 0.35,
-  },
   label: {
     fontSize: 16,
     fontWeight: '600',
