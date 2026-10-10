@@ -41,3 +41,10 @@ app-example
 # generated native folders
 /ios
 /android
+
+# Local native QA captures
+.argent/recordings/
+artifacts/native-qa/*.mp4
+
+# Local project environment notes
+/MEMORY.md
